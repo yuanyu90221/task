@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -16,7 +17,7 @@ var addCmd = &cobra.Command{
 		_, err := db.CreateTask(task)
 		if err != nil {
 			fmt.Println("Something went wrong:", err)
-			return
+			os.Exit(1)
 		}
 		fmt.Printf("Added \"%s\" to your task list.\n", task)
 	},
